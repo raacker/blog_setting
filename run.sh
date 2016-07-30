@@ -11,5 +11,6 @@ rvm install ruby-2.3.0
 
 gem install jekyll
 gem install bundler
+gem install jekyll-paginate
 
 git clone https://github.com/raacker/raacker.github.io
