@@ -1,16 +1,16 @@
 #!/bin/bash
 
 apt-get install -y build-essential libgnome-keyring-dev fakeroot
+apt-get install -y npm
+apt-get install -y nodejs
 
-apt-get install nodejs
-
+npm install -g npm
 cd ~
 
 git clone https://github.com/atom/atom
 cd atom
 
-git fetch -p
-git checkout $(git describe --tags 'git rev-list --tages --max-count=1')
+update-alternatives --install /usr/bin/node node /usr/bin/nodejs 1
 
 script/build
 script/grunt install
