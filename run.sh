@@ -19,3 +19,5 @@ gem install bundler
 gem install jekyll-paginate
 
 git clone https://github.com/raacker/raacker.github.io ~/raacker.github.io
+
+echo "alias runblog='jekyll serve -b /'" >> ~/.bashrc
