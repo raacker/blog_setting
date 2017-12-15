@@ -1,23 +1,19 @@
 #!/bin/bash
 
-apt-get install -y curl
+if [[ $EUID -ne 0 ]]; then
+   echo "Please run with sudo"
+   exit 1
+fi
 
-curl -sL https://deb.nodesource.com/setup_6.x | sudo -E bash -
-
+curl -sL https://deb.nodesource.com/setup_8.x | sudo -E bash -
 apt-get install -y nodejs
 
-gpg --keyserver hkp://keys.gnupg.net --recv-keys D39DC0E3
+cd ~
+wget -O $HOME/atom.deb https://atom.io/download/deb
+dpkg -i $HOME/atom.deb
 
-\curl - sSL https://get.rvm.io | bash -s stable
+apt-get install -y jekyll
 
-source ~/.rvm/scripts/rvm
+git clone https://github.com/raacker/raacker.github.io $HOME/raacker.github.io
 
-rvm install ruby-2.3.0
-
-gem install jekyll
-gem install bundler
-gem install jekyll-paginate
-
-git clone https://github.com/raacker/raacker.github.io ~/raacker.github.io
-
-echo "alias runblog='jekyll serve -b /'" >> ~/.bashrc
+echo "alias runblog='cd $HOME/raacker.github.io && sudo jekyll serve -b /'" >> ~/.bashrc

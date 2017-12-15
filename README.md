@@ -1,9 +1,8 @@
-# blog_setting
-Haven's Blog development Automatic setting
+# setup_blog
 
-Need more : download atom and jekyll plug-in
+**Install**
+- Jekyll
+- Atom
 
-
-Usage:
-
-chmod run.sh and just run it
+**Alias**
+- runblog : run jekyll on raacker.github.io with baseurl '/'
