@@ -14,8 +14,6 @@ dpkg -i $HOME/atom.deb
 
 apt-get install -y jekyll
 
-git clone https://github.com/raacker/raacker.github.io $HOME/raacker.github.io
-chown haven $HOME/raacker.github.io
-chgrp haven $HOME/raacker.github.io
+sudo -u haven git clone https://github.com/raacker/raacker.github.io $HOME/raacker.github.io
 
 echo "alias runblog='cd $HOME/raacker.github.io && sudo jekyll serve -b /'" >> ~/.bashrc
